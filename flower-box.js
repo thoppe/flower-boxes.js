@@ -1,9 +1,7 @@
 var _newbox_p = .40;
 var _vbox_p   = .40;
-var flower_update_time = 100;
-var max_flowers = 10
-
-var min_width = 50, min_height = 50;
+var flower_update_time = 2;
+var max_flowers = 4;
 
 /*
 var color_list = ["rgb(114,90,158)",
@@ -16,9 +14,7 @@ var color_list = ["rgb(114,90,158)",
 var color_list = ["rgb(66,176,52)",
                   "rgb(214,223,21)",
                   "rgb(89,167,204)",
-                  "rgb(213,54,29)",];
-                
-
+                  "rgb(213,54,29)",];              
 
 // http://stackoverflow.com/a/9614662/249341
 jQuery.fn.visible = function() {
@@ -45,52 +41,44 @@ $(document).ready(function() {
     flower_storage = $('<div>', 
                        {id:"flower_storage",});
     flower_storage.hide();
-    $("body").append(flower_storage);
+
+
     
     svg_list.forEach(function(entry) {
         flr  = $('<svg>');
         vase = $('<div>');
         vase.attr("id", "vase"+loaded_flowers);
         vase.attr("class", "vase");
-        flr.load(entry);
+        flr.load(entry, check_preload);
         vase.append(flr[0]);
-        $("#flower_storage").append(vase);
+        flower_storage.append(vase);
         console.log("Loading SVG",entry);
-        loaded_flowers += 1;
     });
 
-    flower_storage.ready(function() {
-        console.log("Starting garden_man");
-        garden_man = setInterval(cycle_flowers,flower_update_time);
-    });
+    $("body").append(flower_storage);
 
 });
+
+function check_preload() {
+    loaded_flowers+=1;
+    if(loaded_flowers == svg_list.length) {
+        console.log("Starting garden_man");
+        garden_man = setInterval(cycle_flowers,flower_update_time);
+    };
+
+};
+
+
+
 
 $(window).click(function(){
     location.reload();
-    
-//    $(this).remove();
-//    solve_all_artboxes();
-//solve_all_artboxes();
 });
 
-
-
-
-
-/*
-$(document).ready(function() {
-//    $(".flowerbox").on("ready", garden);
-    $(".flowerbox").on("click", garden);
-}); 
-
-$(window).on("load", function() { 
-    garden_man = setInterval(cycle_flowers,flower_update_time);
-});
-*/
 
 var flower_builds=0;
 function cycle_flowers() {
+
     flower_builds += 1;
     $(".flowerbox").each(garden);
 
@@ -99,8 +87,6 @@ function cycle_flowers() {
         flower_builds = 0;
     }
 };
-
-
 
 
 // Random number between min and max INCLUSIVE
@@ -127,15 +113,16 @@ function insert_between(objs, item) {
 function new_random_nest() {
 
     var flowers = $("#flower_storage .vase");
-    var select_flower = flowers.eq(randInt(0,flowers.length-1)).clone();
+    var idx = randInt(0,flowers.length-1);
+    var select_flower = flowers.eq(idx).clone();
     var g_box = select_flower.find('svg g');
+    //select_flower.invisible();
 
     var color = color_list[randInt(0,color_list.length-1)];
     g_box.css("fill",color);
 
     //var color = color_list[randInt(0,color_list.length-1)];
     //g_box.css("stroke",color);
-    //console.log(g_box);
 
     node = $('<div>', {"class":"node",html:select_flower});
       
@@ -181,13 +168,36 @@ function garden() {
         };
     }
 
-
-    select_box.ready(function(){
-        //console.log("SIZING",$(this));
-        solve_all_artboxes();
-    });
+    solve_all_artboxes();
+    //hold_till_ready(solve_all_artboxes);
+    //select_box.on("load",solve_all_artboxes);
 
 };
+
+function hold_till_ready(func) {
+    var nodes = $(".node");
+    var condition = true;
+
+    nodes.each(function() {
+        w = $(this).width();
+        h = $(this).height();
+        if( (h==0) | (w==0) ) {
+            console.log(w,h,$(this).html().length);
+            condition=false;
+        };
+    });
+    
+    if( condition==false ) {
+        setTimeout(hold_till_ready, 10000, func);
+        console.log("waiting...");
+    }
+    else {
+        func();
+    };
+
+};
+
+
 
 /*
 function load_when_ready(item,func) {
