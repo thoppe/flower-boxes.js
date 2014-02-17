@@ -1,12 +1,11 @@
 /* Page layout */
-@import url("essays.css");
-@import url("libertine.css");
+@import url("numberone.css");
 
 body {
     background-color:rgb(197,221,225);
     background-color:black;
 
-    font-family: 'Libertine', sans-serif;
+    font-family: 'NumberOne', sans-serif;
     font-size: 14pt;
     margin-right:10%;
     margin-left:10%;
