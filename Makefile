@@ -2,7 +2,7 @@ all:
 	@echo pass
 
 view:
-	chromium-browser index.html &
+	chromium-browser index.html --allow-file-access-from-files &
 
 css:
 	emacs css/main.css &
