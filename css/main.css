@@ -1,0 +1,78 @@
+/* Page layout */
+@import url("essays.css");
+@import url("libertine.css");
+
+body {
+    background-color:rgb(197,221,225);
+    background-color:black;
+
+    font-family: 'Libertine', sans-serif;
+    font-size: 14pt;
+    margin-right:10%;
+    margin-left:10%;
+    margin-bottom:5%;
+}
+
+.rosecolor {
+    color:rgb(252,15,62);
+}
+
+.contents {
+    margin-top:2%;
+    margin-bottom:2%;
+    margin-left:auto;
+    margin-right:auto;
+    width:100%;
+    line-height:.67em;
+}
+
+.inset {
+    margin-left:15%;
+    margin-right:15%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Essays 1743', sans-serif;
+}
+
+.artbox {
+    font-family: 'Essays 1743', sans-serif;
+ }
+
+.logo {
+    line-height:1em;
+    margin-bottom:3.5em;
+}
+
+.logo a {
+    color:inherit;
+    text-decoration:none;
+}
+
+.contents a {
+    text-decoration:none;
+}
+
+.inset .node {
+    line-height:.75em;
+}
+
+.node.script {
+    font-style:italic;
+}
+
+.goldenspaceV{
+    min-width :10px;
+    min-height:16.1803398875px;
+    max-width :10px;
+    max-height:16.1803398875px;
+}
+
+.goldenspaceH{
+    min-height :10px;
+    min-width:16.1803398875px;
+    max-height :10px;
+    max-width:16.1803398875px;
+}
+
+
