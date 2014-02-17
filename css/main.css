@@ -9,7 +9,7 @@ body {
     margin-bottom:5%;
 }
 
-.rosecolor {
+.script {
 
     font-family: 'NumberOne';
     font-style:normal;
@@ -58,9 +58,6 @@ body {
     line-height:.75em;
 }
 
-.node.script {
-    font-style:italic;
-}
 
 .goldenspaceV{
     min-width :10px;

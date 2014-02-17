@@ -38,6 +38,8 @@ var garden_man;
 
 $(document).ready(function() {
 
+    $(".flowerbox").invisible();
+
     flower_storage = $('<div>', 
                        {id:"flower_storage",});
     flower_storage.hide();
@@ -69,8 +71,7 @@ function check_preload() {
 };
 
 
-
-
+// On window click reload everything!
 $(window).click(function(){
     location.reload();
 });
@@ -85,8 +86,23 @@ function cycle_flowers() {
     if(flower_builds > max_flowers) {
         clearInterval(garden_man);
         flower_builds = 0;
+        draw_all_flowers();
+
     }
+
+    // Leave this on for iterative solves
+    // solve_all_artboxes();
+    //draw_all_flowers();
 };
+
+function draw_all_flowers() {
+    var nodes = $(".vase");
+    $("#load_text").invisible();
+    $(".flowerbox").visible();
+    nodes.visible();
+    solve_all_artboxes();
+};
+
 
 
 // Random number between min and max INCLUSIVE
@@ -116,7 +132,7 @@ function new_random_nest() {
     var idx = randInt(0,flowers.length-1);
     var select_flower = flowers.eq(idx).clone();
     var g_box = select_flower.find('svg g');
-    //select_flower.invisible();
+    select_flower.invisible();
 
     var color = color_list[randInt(0,color_list.length-1)];
     g_box.css("fill",color);
@@ -168,7 +184,7 @@ function garden() {
         };
     }
 
-    solve_all_artboxes();
+    
     //hold_till_ready(solve_all_artboxes);
     //select_box.on("load",solve_all_artboxes);
 
