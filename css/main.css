@@ -1,16 +1,29 @@
 /* Page layout */
 @import url("numberone.css");
 
+
 body {
     background-color:black;
 
-    margin-right:0%;
-    margin-left:0%;
-    margin-bottom:0%;
+    margin-right :5%;
+    margin-left  :5%;
+    margin-bottom:5%;
+    margin-top:5%;
 }
 
-.script {
+#loadtext {
+    margin:0;
+    position:fixed;
+    bottom: 50%;
+    left: 0;
+    width: 100%;
+    text-align: center;
+}
 
+
+
+
+.script {
     font-family: 'NumberOne';
     font-style:normal;
     font-weight:600;
