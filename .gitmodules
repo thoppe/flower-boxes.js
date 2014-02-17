@@ -1,0 +1,3 @@
+[submodule "artisanal-boxes.js"]
+	path = artisanal-boxes.js
+	url = https://github.com/thoppe/artisanal-boxes.js
