@@ -2,18 +2,23 @@
 @import url("numberone.css");
 
 body {
-    background-color:rgb(197,221,225);
     background-color:black;
 
-    font-family: 'NumberOne', sans-serif;
-    font-size: 14pt;
     margin-right:10%;
     margin-left:10%;
     margin-bottom:5%;
 }
 
 .rosecolor {
-    color:rgb(252,15,62);
+
+    font-family: 'NumberOne';
+    font-style:normal;
+    font-weight:600;
+
+    line-height:2.5em;
+    margin-left:.5em;
+    margin-right:.05em;
+    color:white;
 }
 
 .contents {
@@ -30,12 +35,9 @@ body {
     margin-right:15%;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    font-family: 'Essays 1743', sans-serif;
-}
 
 .artbox {
-    font-family: 'Essays 1743', sans-serif;
+
  }
 
 .logo {
