@@ -4,9 +4,9 @@
 body {
     background-color:black;
 
-    margin-right:10%;
-    margin-left:10%;
-    margin-bottom:5%;
+    margin-right:0%;
+    margin-left:0%;
+    margin-bottom:0%;
 }
 
 .script {
@@ -22,8 +22,8 @@ body {
 }
 
 .contents {
-    margin-top:2%;
-    margin-bottom:2%;
+    margin-top:0%;
+    margin-bottom:0%;
     margin-left:auto;
     margin-right:auto;
     width:100%;

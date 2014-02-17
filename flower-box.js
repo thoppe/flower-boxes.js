@@ -1,7 +1,7 @@
 var _newbox_p = .40;
-var _vbox_p   = .40;
-var flower_update_time = 2;
-var max_flowers = 4;
+var _vbox_p   = .60;
+var flower_update_time = 0;
+var max_flowers = 7;
 
 /*
 var color_list = ["rgb(114,90,158)",
@@ -97,7 +97,7 @@ function cycle_flowers() {
 
 function draw_all_flowers() {
     var nodes = $(".vase");
-    $("#load_text").invisible();
+    $("#load_text").hide();
     $(".flowerbox").visible();
     nodes.visible();
     solve_all_artboxes();
