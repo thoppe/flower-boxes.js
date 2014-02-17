@@ -1,0 +1,11 @@
+# Temp files
+
+*~
+*.pyc
+
+# Equation files
+
+.render_cache/*
+
+# Demo files
+demo.html
